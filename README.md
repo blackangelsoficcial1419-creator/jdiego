@@ -1,1 +1,133 @@
-# jdiego
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kathe te quiero muchísimo</title>
+<style>
+:root {
+  --dark-color: #000;
+  --flower-color: #b066ff; /* morado principal */
+  --flower-highlight: #e6d6ff; /* violeta claro */
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  min-height: 100vh;
+  background: var(--dark-color);
+  overflow: hidden;
+  font-family: 'Poppins', sans-serif;
+  margin: 0;
+}
+
+/* 💜 Título romántico */
+h1 {
+  position: absolute;
+  top: 40px;
+  text-align: center;
+  font-size: 2.8rem;
+  color: #d6b3ff;
+  text-shadow: 0 0 10px #b066ff, 0 0 20px #cfaeff, 0 0 40px #b066ff;
+  animation: brillo 3s ease-in-out infinite alternate;
+}
+
+@keyframes brillo {
+  from { text-shadow: 0 0 10px #b066ff, 0 0 20px #cfaeff; }
+  to { text-shadow: 0 0 25px #e6d6ff, 0 0 40px #b066ff; }
+}
+
+/* 🌷 Flor */
+.flor {
+  position: relative;
+  animation: mover 4s infinite ease-in-out;
+}
+
+.petal {
+  position: absolute;
+  width: 60px;
+  height: 90px;
+  border-radius: 50px 50px 0 0;
+  background: linear-gradient(145deg, var(--flower-color), var(--flower-highlight));
+  box-shadow: 0 0 10px #c69eff, 0 0 25px #b066ff; /* resplandor violeta */
+  transform-origin: bottom center;
+}
+
+.petal:nth-child(1) {
+  transform: rotate(-20deg);
+  left: -30px;
+}
+
+.petal:nth-child(2) {
+  transform: rotate(0deg);
+}
+
+.petal:nth-child(3) {
+  transform: rotate(20deg);
+  left: 30px;
+}
+
+/* 🌿 Tallo */
+.tallo {
+  position: absolute;
+  width: 8px;
+  height: 200px;
+  background: linear-gradient(to bottom, #5a3d8b, #4b007d);
+  left: 50%;
+  bottom: 0;
+  transform: translateX(-50%);
+  border-radius: 5px;
+  box-shadow: 0 0 5px #7d49ff;
+}
+
+/* 🍃 Hojas */
+.hoja {
+  position: absolute;
+  width: 50px;
+  height: 80px;
+  background: linear-gradient(145deg, #7b4fff, #e6d6ff);
+  border-radius: 0 80% 0 80%;
+  bottom: 40px;
+  transform-origin: bottom;
+}
+
+.hoja.left {
+  left: -40px;
+  transform: rotate(-25deg);
+}
+
+.hoja.right {
+  right: -40px;
+  transform: rotate(25deg);
+}
+
+@keyframes mover {
+  0%, 100% {
+    transform: translateY(0) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-10px) rotate(1deg);
+  }
+}
+</style>
+</head>
+<body>
+
+<h1>Kathe te quiero muchísimo 💜</h1>
+
+<div class="flor">
+  <div class="petal"></div>
+  <div class="petal"></div>
+  <div class="petal"></div>
+  <div class="tallo"></div>
+  <div class="hoja left"></div>
+  <div class="hoja right"></div>
+</div>
+
+</body>
+</html>
+
+@keyframes particle-explode {
+  0% { transform: scale(0.5) translate(0,0); opacity: 1; }
