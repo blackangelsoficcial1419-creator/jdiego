@@ -42,50 +42,48 @@ h1 {
 /* 🌸 Flor */
 .flor {
   position: relative;
-  width: 200px;
+  width: 150px;
   height: 300px;
   display: flex;
   justify-content: center;
-  align-items: center;
-  animation: mover 4s infinite ease-in-out;
+  align-items: flex-end;
 }
 
-/* 🌼 Pétalos */
+/* 🌼 Pétalos tipo flor normal */
 .petal {
   position: absolute;
-  width: 70px;
-  height: 70px;
-  background: radial-gradient(circle at 30% 30%, var(--flower-highlight), var(--flower-color));
-  border-radius: 50%;
+  width: 60px;
+  height: 100px;
+  background: linear-gradient(145deg, var(--flower-color), var(--flower-highlight));
+  border-radius: 50px 50px 0 0;
+  top: 0; /* pétalos arriba del tallo */
+  transform-origin: bottom center;
   box-shadow: 0 0 10px #c69eff, 0 0 20px #b066ff;
-  transform-origin: center;
+  z-index: 2;
 }
 
-/* 🔼 colocamos pétalos arriba */
-.petal:nth-child(1) { transform: rotate(0deg) translateY(-100px); }
-.petal:nth-child(2) { transform: rotate(72deg) translateY(-100px); }
-.petal:nth-child(3) { transform: rotate(144deg) translateY(-100px); }
-.petal:nth-child(4) { transform: rotate(216deg) translateY(-100px); }
-.petal:nth-child(5) { transform: rotate(288deg) translateY(-100px); }
+.petal:nth-child(1) { transform: rotate(-25deg) translateY(0px); left: -30px; }
+.petal:nth-child(2) { transform: rotate(0deg); left: 0; }
+.petal:nth-child(3) { transform: rotate(25deg) translateY(0px); left: 30px; }
 
 /* 🌻 Centro */
 .center {
   position: absolute;
-  top: 80px;
-  width: 60px;
-  height: 60px;
-  background: radial-gradient(circle, #fff5ff, #b066ff);
+  top: 60px;
+  width: 50px;
+  height: 50px;
+  background: radial-gradient(circle, #fff5ff, #a24fff);
   border-radius: 50%;
-  box-shadow: 0 0 10px #b066ff, 0 0 25px #e6d6ff;
+  box-shadow: 0 0 15px #b066ff, 0 0 30px #e6d6ff;
   z-index: 3;
 }
 
 /* 🌿 Tallo */
 .tallo {
   position: absolute;
-  top: 140px;
+  top: 110px;
   width: 8px;
-  height: 140px;
+  height: 180px;
   background: linear-gradient(to bottom, #5a3d8b, #4b007d);
   left: 50%;
   transform: translateX(-50%);
@@ -101,7 +99,7 @@ h1 {
   height: 80px;
   background: linear-gradient(145deg, #7b4fff, #e6d6ff);
   border-radius: 0 80% 0 80%;
-  top: 220px;
+  top: 200px;
   transform-origin: bottom;
   z-index: 0;
 }
@@ -115,12 +113,6 @@ h1 {
   right: -40px;
   transform: rotate(25deg);
 }
-
-/* 🌬️ Movimiento suave */
-@keyframes mover {
-  0%, 100% { transform: translateY(0) rotate(0deg); }
-  50% { transform: translateY(-10px) rotate(1deg); }
-}
 </style>
 </head>
 <body>
@@ -128,8 +120,6 @@ h1 {
 <h1>Kathe te quiero muchísimo 💜</h1>
 
 <div class="flor">
-  <div class="petal"></div>
-  <div class="petal"></div>
   <div class="petal"></div>
   <div class="petal"></div>
   <div class="petal"></div>
