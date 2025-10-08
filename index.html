@@ -15,7 +15,7 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: flex-end;
+  justify-content: center;
   min-height: 100vh;
   background: var(--dark-color);
   overflow: hidden;
@@ -45,11 +45,12 @@ h1 {
   animation: mover 4s infinite ease-in-out;
   display: flex;
   justify-content: center;
-  align-items: flex-end;
-  height: 300px;
+  align-items: center;
+  height: 260px;
+  margin-top: -40px;
 }
 
-/* 🌼 Pétalos (flor normal redondeada) */
+/* 🌼 Pétalos */
 .petal {
   position: absolute;
   width: 70px;
@@ -57,24 +58,25 @@ h1 {
   background: radial-gradient(circle at 30% 30%, var(--flower-highlight), var(--flower-color));
   border-radius: 50%;
   box-shadow: 0 0 10px #c69eff, 0 0 20px #b066ff;
-  transform-origin: center center;
+  transform-origin: center;
 }
 
-.petal:nth-child(1) { transform: rotate(0deg) translateY(-50px); }
-.petal:nth-child(2) { transform: rotate(72deg) translateY(-50px); }
-.petal:nth-child(3) { transform: rotate(144deg) translateY(-50px); }
-.petal:nth-child(4) { transform: rotate(216deg) translateY(-50px); }
-.petal:nth-child(5) { transform: rotate(288deg) translateY(-50px); }
+/* 🔼 Subimos los pétalos para que rodeen el centro */
+.petal:nth-child(1) { transform: rotate(0deg) translateY(-80px); }
+.petal:nth-child(2) { transform: rotate(72deg) translateY(-80px); }
+.petal:nth-child(3) { transform: rotate(144deg) translateY(-80px); }
+.petal:nth-child(4) { transform: rotate(216deg) translateY(-80px); }
+.petal:nth-child(5) { transform: rotate(288deg) translateY(-80px); }
 
-/* 🌻 Centro de la flor */
+/* 🌻 Centro */
 .center {
   position: absolute;
+  top: 40px; /* 🔼 el centro más arriba */
   width: 60px;
   height: 60px;
   background: radial-gradient(circle, #fff5ff, #b066ff);
   border-radius: 50%;
   box-shadow: 0 0 10px #b066ff, 0 0 25px #e6d6ff;
-  top: 100px;
   z-index: 3;
 }
 
@@ -82,10 +84,10 @@ h1 {
 .tallo {
   position: absolute;
   width: 8px;
-  height: 200px;
+  height: 150px;
   background: linear-gradient(to bottom, #5a3d8b, #4b007d);
   left: 50%;
-  bottom: 0;
+  top: 100px; /* 🔼 empieza justo debajo del centro */
   transform: translateX(-50%);
   border-radius: 5px;
   box-shadow: 0 0 5px #7d49ff;
@@ -99,7 +101,7 @@ h1 {
   height: 80px;
   background: linear-gradient(145deg, #7b4fff, #e6d6ff);
   border-radius: 0 80% 0 80%;
-  bottom: 40px;
+  top: 180px;
   transform-origin: bottom;
   z-index: 0;
 }
@@ -116,12 +118,8 @@ h1 {
 
 /* 🌬️ Movimiento suave */
 @keyframes mover {
-  0%, 100% {
-    transform: translateY(0) rotate(0deg);
-  }
-  50% {
-    transform: translateY(-10px) rotate(1deg);
-  }
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  50% { transform: translateY(-10px) rotate(1deg); }
 }
 </style>
 </head>
