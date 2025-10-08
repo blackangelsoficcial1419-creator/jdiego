@@ -6,13 +6,15 @@
 <title>Kathe te quiero muchísimo</title>
 <style>
 :root {
-  --dark-color: #000;
-  --flower-color: #b066ff;
-  --flower-highlight: #e6d6ff;
+  --bg: #000;
+  --flower-main: #b066ff;
+  --flower-light: #e6d6ff;
+  --stem: #4b007d;
+  --glow: #cba9ff;
 }
 
 body {
-  background: var(--dark-color);
+  background: var(--bg);
   margin: 0;
   height: 100vh;
   overflow: hidden;
@@ -28,106 +30,45 @@ h1 {
   position: absolute;
   top: 40px;
   text-align: center;
-  font-size: 2.5rem;
-  color: #e6d6ff;
-  text-shadow: 0 0 15px #b066ff, 0 0 25px #cfaeff, 0 0 40px #b066ff;
+  font-size: 2.6rem;
+  color: var(--flower-light);
+  letter-spacing: 2px;
+  text-shadow: 0 0 10px var(--flower-main),
+               0 0 25px var(--flower-light),
+               0 0 45px var(--glow);
   animation: brillo 3s ease-in-out infinite alternate;
 }
-
 @keyframes brillo {
-  from { text-shadow: 0 0 10px #b066ff, 0 0 20px #cfaeff; }
-  to { text-shadow: 0 0 25px #e6d6ff, 0 0 40px #b066ff; }
+  from { text-shadow: 0 0 15px var(--flower-main), 0 0 25px var(--flower-light); }
+  to { text-shadow: 0 0 30px var(--flower-light), 0 0 60px var(--flower-main); }
 }
 
-/* 🌸 Flor */
+/* 🌸 Contenedor de la flor */
 .flor {
   position: relative;
-  width: 150px;
-  height: 300px;
+  width: 220px;
+  height: 400px;
   display: flex;
   justify-content: center;
   align-items: flex-end;
+  animation: balanceo 6s ease-in-out infinite;
+  transform-origin: bottom center;
 }
 
-/* 🌼 Pétalos tipo flor normal */
+/* 🌺 Pétalos */
 .petal {
   position: absolute;
-  width: 60px;
-  height: 100px;
-  background: linear-gradient(145deg, var(--flower-color), var(--flower-highlight));
-  border-radius: 50px 50px 0 0;
-  top: 0; /* pétalos arriba del tallo */
-  transform-origin: bottom center;
-  box-shadow: 0 0 10px #c69eff, 0 0 20px #b066ff;
-  z-index: 2;
-}
-
-.petal:nth-child(1) { transform: rotate(-25deg) translateY(0px); left: -30px; }
-.petal:nth-child(2) { transform: rotate(0deg); left: 0; }
-.petal:nth-child(3) { transform: rotate(25deg) translateY(0px); left: 30px; }
-
-/* 🌻 Centro */
-.center {
-  position: absolute;
-  top: 60px;
-  width: 50px;
-  height: 50px;
-  background: radial-gradient(circle, #fff5ff, #a24fff);
-  border-radius: 50%;
-  box-shadow: 0 0 15px #b066ff, 0 0 30px #e6d6ff;
-  z-index: 3;
-}
-
-/* 🌿 Tallo */
-.tallo {
-  position: absolute;
-  top: 110px;
-  width: 8px;
-  height: 180px;
-  background: linear-gradient(to bottom, #5a3d8b, #4b007d);
+  width: 90px;
+  height: 120px;
+  background: radial-gradient(circle at 30% 30%, var(--flower-light), var(--flower-main));
+  border-radius: 60% 60% 40% 40%;
+  box-shadow: 0 0 15px var(--glow);
+  top: 0;
   left: 50%;
-  transform: translateX(-50%);
-  border-radius: 5px;
-  box-shadow: 0 0 5px #7d49ff;
-  z-index: 1;
+  transform-origin: bottom center;
+  opacity: 0.9;
 }
 
-/* 🍃 Hojas */
-.hoja {
-  position: absolute;
-  width: 50px;
-  height: 80px;
-  background: linear-gradient(145deg, #7b4fff, #e6d6ff);
-  border-radius: 0 80% 0 80%;
-  top: 200px;
-  transform-origin: bottom;
-  z-index: 0;
-}
-
-.hoja.left {
-  left: -40px;
-  transform: rotate(-25deg);
-}
-
-.hoja.right {
-  right: -40px;
-  transform: rotate(25deg);
-}
-</style>
-</head>
-<body>
-
-<h1>Kathe te quiero muchísimo 💜</h1>
-
-<div class="flor">
-  <div class="petal"></div>
-  <div class="petal"></div>
-  <div class="petal"></div>
-  <div class="center"></div>
-  <div class="tallo"></div>
-  <div class="hoja left"></div>
-  <div class="hoja right"></div>
-</div>
-
-</body>
-</html>
+/* Distribución más realista */
+.petal:nth-child(1) { transform: translateX(-50%) rotate(-40deg) translateY(10px); }
+.petal:nth-child(2) { transform: translateX(-50%)
