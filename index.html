@@ -7,8 +7,8 @@
 <style>
 :root {
   --dark-color: #000;
-  --flower-color: #b066ff; /* morado principal */
-  --flower-highlight: #e6d6ff; /* violeta claro */
+  --flower-color: #b066ff;
+  --flower-highlight: #e6d6ff;
 }
 
 body {
@@ -23,14 +23,14 @@ body {
   margin: 0;
 }
 
-/* 💜 Título romántico */
+/* 💜 Texto superior */
 h1 {
   position: absolute;
   top: 40px;
   text-align: center;
-  font-size: 2.8rem;
-  color: #d6b3ff;
-  text-shadow: 0 0 10px #b066ff, 0 0 20px #cfaeff, 0 0 40px #b066ff;
+  font-size: 2.5rem;
+  color: #e6d6ff;
+  text-shadow: 0 0 15px #b066ff, 0 0 25px #cfaeff, 0 0 40px #b066ff;
   animation: brillo 3s ease-in-out infinite alternate;
 }
 
@@ -39,55 +39,57 @@ h1 {
   to { text-shadow: 0 0 25px #e6d6ff, 0 0 40px #b066ff; }
 }
 
-/* 🌷 Flor */
+/* 🌸 Flor */
 .flor {
   position: relative;
+  animation: mover 4s infinite ease-in-out;
   display: flex;
   justify-content: center;
   align-items: flex-end;
-  height: 350px;
+  height: 300px;
 }
 
-/* 🌸 Pétalos arriba del tallo */
+/* 🌼 Pétalos (flor normal redondeada) */
 .petal {
   position: absolute;
+  width: 70px;
+  height: 70px;
+  background: radial-gradient(circle at 30% 30%, var(--flower-highlight), var(--flower-color));
+  border-radius: 50%;
+  box-shadow: 0 0 10px #c69eff, 0 0 20px #b066ff;
+  transform-origin: center center;
+}
+
+.petal:nth-child(1) { transform: rotate(0deg) translateY(-50px); }
+.petal:nth-child(2) { transform: rotate(72deg) translateY(-50px); }
+.petal:nth-child(3) { transform: rotate(144deg) translateY(-50px); }
+.petal:nth-child(4) { transform: rotate(216deg) translateY(-50px); }
+.petal:nth-child(5) { transform: rotate(288deg) translateY(-50px); }
+
+/* 🌻 Centro de la flor */
+.center {
+  position: absolute;
   width: 60px;
-  height: 90px;
-  border-radius: 50px 50px 0 0;
-  background: linear-gradient(145deg, var(--flower-color), var(--flower-highlight));
-  box-shadow: 0 0 10px #c69eff, 0 0 25px #b066ff;
-  transform-origin: bottom center;
-  top: 40px; /* 🌸 ahora están en la punta superior del tallo */
-  z-index: 2; /* pétalos delante del tallo */
-}
-
-.petal:nth-child(1) {
-  transform: rotate(-25deg);
-  left: -30px;
-}
-
-.petal:nth-child(2) {
-  transform: rotate(0deg);
-  left: 0;
-}
-
-.petal:nth-child(3) {
-  transform: rotate(25deg);
-  left: 30px;
+  height: 60px;
+  background: radial-gradient(circle, #fff5ff, #b066ff);
+  border-radius: 50%;
+  box-shadow: 0 0 10px #b066ff, 0 0 25px #e6d6ff;
+  top: 100px;
+  z-index: 3;
 }
 
 /* 🌿 Tallo */
 .tallo {
   position: absolute;
   width: 8px;
-  height: 250px;
+  height: 200px;
   background: linear-gradient(to bottom, #5a3d8b, #4b007d);
   left: 50%;
   bottom: 0;
   transform: translateX(-50%);
   border-radius: 5px;
   box-shadow: 0 0 5px #7d49ff;
-  z-index: 1; /* detrás de los pétalos */
+  z-index: 1;
 }
 
 /* 🍃 Hojas */
@@ -112,7 +114,7 @@ h1 {
   transform: rotate(25deg);
 }
 
-
+/* 🌬️ Movimiento suave */
 @keyframes mover {
   0%, 100% {
     transform: translateY(0) rotate(0deg);
@@ -131,6 +133,9 @@ h1 {
   <div class="petal"></div>
   <div class="petal"></div>
   <div class="petal"></div>
+  <div class="petal"></div>
+  <div class="petal"></div>
+  <div class="center"></div>
   <div class="tallo"></div>
   <div class="hoja left"></div>
   <div class="hoja right"></div>
@@ -138,6 +143,3 @@ h1 {
 
 </body>
 </html>
-
-@keyframes particle-explode {
-  0% { transform: scale(0.5) translate(0,0); opacity: 1; }
